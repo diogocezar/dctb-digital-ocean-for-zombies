@@ -235,6 +235,48 @@ ns2.digitalocean.com.
 ns2.digitalocean.com.
 ```
 
+# Como faço para enviar os arquivos?
+
+Bom, vou ensinar aqui 2 maneira de fazer isso:
+
+## Configurando o FTP
+
+Para isso vamos instalar e configurar o proftpd:
+
+```
+sudo apt-get install proftpd
+sudo nano /etc/proftpd/proftpd.conf
+```
+
+Procure, descomente e altere para:
+
+```
+DefaultRoot /var/www/
+```
+
+```
+sudo adduser zombie www-data
+sudo chown -R www-data:www-data /var/www
+sudo chmod -R g+rw /var/www
+sudo service proftpd restart
+```
+
+Com isso você já conseguirá acessar por ftp o seu servidor na pasta /www
+
+## Instalando o GIT
+
+É a opção que eu mais acho bacana, com ela você consegue ter a versão em produção do seu site direto no seu servidor.
+
+Para isso basta instalar o GIT
+
+```
+sudo apt-get install git
+```
+
+E ai vou assumir que você sabe usar o git, ou caso contrário, envie por FTP ;)
+
+---
+
 Pronto! Seu novo servidor está configurado, com apenas U$ 5,00 por mês!
 
 Não é um caminho fácil, mas garanto que vale muito a pena.
