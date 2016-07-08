@@ -267,9 +267,9 @@ Com isso você já conseguirá acessar por ftp o seu servidor na pasta /www
 
 As informações são:
 
-* HOST: ftp.<ip_do_seu_droplet>
+* HOST: ftp.IP-DO-SEU-DROPLET
 * USER: zombie
-* PASS: <sua_senha>
+* PASS: SUA-SENHA
 
 ## Instalando o GIT
 
