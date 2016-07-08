@@ -58,6 +58,8 @@ Adicione a linha:
 zombie    ALL=(ALL:ALL) ALL
 ```
 
+Agora é bacana que vc deslogue do root e logue com o novo usuário e senha que acabou de criar.
+
 # Instalando o Lamp
 
 Para quem ainda não sabe, Lamp é Linux + Apache + MySQL + PHP ;)
@@ -262,6 +264,12 @@ sudo service proftpd restart
 ```
 
 Com isso você já conseguirá acessar por ftp o seu servidor na pasta /www
+
+As informações são:
+
+* HOST: ftp.<ip_do_seu_droplet>
+* USER: zombie
+* PASS: <sua_senha>
 
 ## Instalando o GIT
 
