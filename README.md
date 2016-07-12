@@ -307,6 +307,51 @@ https://sendgrid.com/
 
 Que também tem uma versão free e tem até plugin para o WordPress.
 
+Se você quiser mesmo enviar emails pelo servidor, então recomendo o seguinte:
+
+1. Abra um ticket pedindo para liberarem as portas de conexão a SMTP;
+2. Você precisará enviar algumas informações pessoais, por causa da politica Anti-Spam do Digital Ocean;
+3. Com as portas liberadas, acesse sua conta no Gmail e habilite a opção de acesso a aplicativos menos segudos.
+4. Baixe um PHPMailer, e faça um exemplo de teste com as configurações para envio pelo GMAIL:
+
+```
+<?php
+	require './vendor/autoload.php';
+
+	$mail = new PHPMailer;
+
+	$mail->SMTPDebug = 4;
+
+	$mail->isSMTP();
+	$mail->Host = 'smtp.gmail.com';
+	$mail->SMTPAuth = true;
+	$mail->Username = 'zombie@gmail.com';
+	$mail->Password = '***';
+	$mail->SMTPSecure = 'tls';
+	$mail->Port = 587;
+
+	$mail->setFrom('zombie@gmail.com', 'Zombie');
+	$mail->addAddress('zombie@gmail.com', 'Zombie');
+
+	$mail->isHTML(true);
+
+	$mail->Subject = 'Here is the subject';
+	$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+	if(!$mail->send()) {
+	    echo 'Message could not be sent.';
+	    echo 'Mailer Error: ' . $mail->ErrorInfo;
+	} else {
+	    echo 'Message has been sent';
+	}
+?>
+```
+
+Quando você executar o script, o gmail irá lhe informar que estão com a sua senha, afinal o seu droplet não está no mesmo país que você. Permita a ação e então os próximos acessos estarão liberados.
+
+---
+
 É isso pessoal, espero que eu possa ter ajudado em algo.
 
 Este repositório está aberto a contribuições ;)
