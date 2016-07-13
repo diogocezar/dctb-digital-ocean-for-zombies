@@ -350,6 +350,10 @@ Se você quiser mesmo enviar emails pelo servidor, então recomendo o seguinte:
 
 Quando você executar o script, o gmail irá lhe informar que estão com a sua senha, afinal o seu droplet não está no mesmo país que você. Permita a ação e então os próximos acessos estarão liberados.
 
+# Precisa de mais memória? Habilite o Swap
+
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
+
 ---
 
 É isso pessoal, espero que eu possa ter ajudado em algo.
