@@ -190,7 +190,7 @@ Desta forma, você terá configurado 2 sites em seu servidor.
 
 Sempre que houver a necessidade de adicionar algum novo site, basta incluir alguém novo alí ;)
 
-## Forma Correta
+## Forma Correta:
 
 Crie o primeiro arquivo de Virtual Host
 
