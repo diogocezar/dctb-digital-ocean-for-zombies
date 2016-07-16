@@ -158,9 +158,9 @@ Ficará algo como:
 
 Pronto, agora podemos editar o arquivo que irá fazer todo o nosso roteamento.
 
-Você pode utilizar um arquivo já default ou criar um novo, o imporantante é que todos tenham a mesma estrutura e fique no mesmo diretório.
+Aqui temos 2 formas de se fazer isso, da forma rápida e fácil e da forma correta.
 
-No exemplo vou editar o arquivo:
+## Forma Rápida e Fácil:
 
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
@@ -190,7 +190,54 @@ Desta forma, você terá configurado 2 sites em seu servidor.
 
 Sempre que houver a necessidade de adicionar algum novo site, basta incluir alguém novo alí ;)
 
-Pronto agora basta reiniciar o apache:
+## Forma Correta
+
+Crie o primeiro arquivo de Virtual Host
+
+Começe copiando o arquivo para o primeiro domínio:
+
+```
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/zombie1.com.conf
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/zombie2.com.conf
+```
+
+Abra o novo arquivo em seu editor com privilégios de root:
+
+```
+sudo nano /etc/apache2/sites-available/zombie1.com.conf
+```
+
+O arquivo será algo parecido com isso (eu removi os comentários aqui para tornar o arquivo mais acessível):
+
+```
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+Deixe com algo parecido com:
+
+```
+<VirtualHost *:80>
+  ServerName zombie1.com.br
+  ServerAlias zombie1.com.br www.zombie1.com.br
+  DocumentRoot /var/www/zombie1
+</VirtualHost>
+```
+
+Copie o primeiro Virtual Host e personalize-o para o Segundo Domínio (zombie2).
+
+### Ative os novos arquivos de Virtual Host
+
+```
+sudo a2ensite www.zombie1.com.br.conf
+sudo a2ensite www.zombie2.com.br.conf
+```
+
+Quando terminar, você precisará reiniciar o Apache para fazer com que estas alterações tenham efeito:
 
 ```
 sudo service apache2 restart
