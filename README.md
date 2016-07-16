@@ -401,7 +401,53 @@ Quando você executar o script, o gmail irá lhe informar que estão com a sua s
 
 https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
 
----
+Ai tem um tutorial bacana em inglês explicando tudo certinho, mas caso queira fazer da forma fácil e rápida basta seguir:
+
+```
+sudo swapon -s
+```
+
+Nada deverá aparecer. Ou algo como:
+
+```
+Filename                Type        Size    Used    Priority
+```
+
+```
+free -m
+```
+
+```
+             total       used       free     shared    buffers     cached
+Mem:          3953        154       3799          0          8         83
+-/+ buffers/cache:         62       3890
+Swap:            0          0          0
+```
+
+Então siga com:
+
+```
+sudo fallocate -l 4G /swapfile
+ls -lh /swapfile
+-> -rw-r--r-- 1 root root 4.0G Apr 28 17:19 /swapfile
+sudo chmod 600 /swapfile
+ls -lh /swapfile
+-> -rw------- 1 root root 4.0G Apr 28 17:19 /swapfile
+sudo mkswap /swapfile
+-> Setting up swapspace version 1, size = 4194300 KiB
+-> no label, UUID=e2f1e9cf-c0a9-4ed4-b8ab-714b8a7d6944
+sudo swapon /swapfile
+sudo swapon -s
+-> Filename                Type        Size    Used    Priority
+-> /swapfile               file        4194300 0       -1
+free -m
+->              total       used       free     shared    buffers     cached
+-> Mem:          3953        101       3851          0          5         30
+-> -/+ buffers/cache:         66       3887
+-> Swap:         4095          0       4095
+sudo nano /etc/fstab
+-> adicione: /swapfile   none    swap    sw    0   0
+```
 
 É isso pessoal, espero que eu possa ter ajudado em algo.
 
