@@ -314,7 +314,7 @@ Com isso você já conseguirá acessar por ftp o seu servidor na pasta /www
 
 As informações são:
 
-* HOST: ftp.IP-DO-SEU-DROPLET
+* HOST: IP-DO-SEU-DROPLET
 * USER: zombie
 * PASS: SUA-SENHA
 
