@@ -429,24 +429,59 @@ Então siga com:
 ```
 sudo fallocate -l 4G /swapfile
 ls -lh /swapfile
--> -rw-r--r-- 1 root root 4.0G Apr 28 17:19 /swapfile
+```
+
+```
+-rw-r--r-- 1 root root 4.0G Apr 28 17:19 /swapfile
+```
+
+```
 sudo chmod 600 /swapfile
 ls -lh /swapfile
--> -rw------- 1 root root 4.0G Apr 28 17:19 /swapfile
+```
+
+```
+-rw------- 1 root root 4.0G Apr 28 17:19 /swapfile
+```
+
+```
 sudo mkswap /swapfile
--> Setting up swapspace version 1, size = 4194300 KiB
--> no label, UUID=e2f1e9cf-c0a9-4ed4-b8ab-714b8a7d6944
+```
+
+```
+Setting up swapspace version 1, size = 4194300 KiB
+no label, UUID=e2f1e9cf-c0a9-4ed4-b8ab-714b8a7d6944
+```
+
+```
 sudo swapon /swapfile
 sudo swapon -s
--> Filename                Type        Size    Used    Priority
--> /swapfile               file        4194300 0       -1
+```
+
+```
+Filename                Type        Size    Used    Priority
+/swapfile               file        4194300 0       -1
+```
+
+```
 free -m
-->              total       used       free     shared    buffers     cached
--> Mem:          3953        101       3851          0          5         30
--> -/+ buffers/cache:         66       3887
--> Swap:         4095          0       4095
+```
+
+``` 
+             total       used       free     shared    buffers     cached
+Mem:          3953        101       3851          0          5         30
+-/+ buffers/cache:         66       3887
+Swap:         4095          0       4095
+```
+
+```
 sudo nano /etc/fstab
--> adicione: /swapfile   none    swap    sw    0   0
+```
+
+Adicione ao final:
+
+```
+/swapfile   none    swap    sw    0   0
 ```
 
 É isso pessoal, espero que eu possa ter ajudado em algo.
