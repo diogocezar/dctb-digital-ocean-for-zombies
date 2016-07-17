@@ -104,7 +104,7 @@ Permite que você acesse e controle seus bancos de dados MySQL:
 sudo apt-get install phpmyadmin
 ```
 
-### Instalando PEAR
+### Instalando PEAR (Opcional)
 
 Conjunto de funcionalidades PHP.
 
@@ -112,7 +112,7 @@ Conjunto de funcionalidades PHP.
 sudo apt-get install php-pear
 ```
 
-### Instalando PHP5-curl
+### Instalando PHP5-curl (Opcional)
 
 Permite o acesso a urls externas através do comando curl no PHP.
 
@@ -242,6 +242,16 @@ Quando terminar, você precisará reiniciar o Apache para fazer com que estas al
 ```
 sudo service apache2 restart
 ```
+
+# Alterando o timezone
+
+Como o servidor não está no Brasil, precisamos informar que nosso servidor deve seguir o nosso horário, para isso:
+
+```
+sudo dpkg-reconfigure tzdata
+```
+
+Selecione ```América / São Paulo```
 
 E estamos quase terminando, basta fazer as configurações no Digital Ocean.
 
