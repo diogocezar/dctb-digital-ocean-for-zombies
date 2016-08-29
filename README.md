@@ -494,6 +494,45 @@ Adicione ao final:
 /swapfile   none    swap    sw    0   0
 ```
 
+## Veio com PHP 7.0? Quer uma versão anterior? Deixe os 2 habilitados ;)
+
+Caso queiram utilizar uma distribuição que venha com o PHP7.0 instalado por default, você pode deixar seu servidor dual PHP, deixando o 7 e também o 5.X.
+
+Para isso:
+
+```
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.0 php5.6 php5.6-mysql php-gettext php5.6-mbstring php-xdebug libapache2-mod-php5.6 libapache2-mod-php7.0
+```
+
+Ai então para trocar de versão (Apache e PHP):
+
+Do php5.6 para php7.0 :
+
+Apache:
+
+```
+sudo a2dismod php5.6 ; sudo a2enmod php7.0 ; sudo service apache2 restart
+sudo ln -sfn /usr/bin/php7.0 /etc/alternatives/php
+```
+
+Do php7.0 para php5.6 :
+
+```
+sudo a2dismod php7.0 ; sudo a2enmod php5.6 ; sudo service apache2 restart
+sudo ln -sfn /usr/bin/php5.6 /etc/alternatives/php
+```
+
+Provavelmente você irá precisar reinstalar alguns módulos para o php 5.6, então:
+
+```
+sudo apt-get install php5.6-gd
+sudo apt-get install php5.6-xml
+sudo apt-get install php5.6-curl
+```
+
+
 É isso pessoal, espero que eu possa ter ajudado em algo.
 
 Este repositório está aberto a contribuições ;)
