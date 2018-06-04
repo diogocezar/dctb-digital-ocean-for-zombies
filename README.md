@@ -148,7 +148,7 @@ AllowOverride All
 
 Ficará algo como:
 
-````
+```
 <Directory /var/www/>
   Options Indexes FollowSymLinks
   AllowOverride All
